@@ -9,15 +9,11 @@ const TabsNav = () => {
   return (
     <Tabs isFitted variant='enclosed'>
       <TabList mb='1em'>
-        <Tab fontSize={'1.5rem'} fontFamily={'munayTitle'} name='Sabores tradicional'>Tradicional</Tab>
-        <Tab fontSize={'1.5rem'} fontFamily={'munayTitle'} name='Sabores especiales' >Especiales</Tab>
+        <Tab fontSize={'1.5rem'} fontFamily={'munayTitle'} name='Sabores tradicional'>Produtos</Tab>
       </TabList>
       <TabPanels>
         <TabPanel>
-          <CardsContent stateFilter={true} />
-        </TabPanel>
-        <TabPanel>
-          <CardsContent stateFilter={false} />
+          <CardsContent />
         </TabPanel>
       </TabPanels>
     </Tabs>

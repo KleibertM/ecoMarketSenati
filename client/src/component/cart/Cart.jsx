@@ -15,7 +15,6 @@ import {
     Flex,
     Button,
     Heading,
-    Box,
     Text,
 } from "@chakra-ui/react";
 import {

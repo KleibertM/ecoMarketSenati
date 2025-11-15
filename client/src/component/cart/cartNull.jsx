@@ -1,5 +1,5 @@
-import { Flex, Text, keyframes } from '@chakra-ui/react'
-import {  PiFlyingSaucerFill } from "react-icons/pi";
+import { Flex, Text, keyframes } from '@chakra-ui/react';
+import { FiX } from "react-icons/fi";
 const animation = keyframes
     `from {
     opacity: 0
@@ -18,10 +18,10 @@ const CartNull = () => {
 
                 <Text fontSize={['20rem', 'auto']} 
                 color={'#58D68D'}>
-                    <PiFlyingSaucerFill />
+                    <FiX />
                 </Text>
                 <Text fontSize={'1.5rem'} fontWeight={'bold'}>
-                    ¡No tienes marcianos en la nave!
+                    ¡Hay producto en el Carrito!
                 </Text>
             </Flex>
         </>

@@ -9,19 +9,21 @@ import { lazy } from 'react';
 
 const ImageRender = lazy(()=> import('./ImageRender'))
  
-const CardComponent = ({ dataItem }) => {
-    const { id, nombre, descripcion, image, precio, ingredientes, estado, tipo } = dataItem
-
+const CardComponent = ( {dataItem} ) => {
+    const { id, nombre, image, precio, tipo } = dataItem;
+    console.log(dataItem);
     
-    let bgPrice = tipo ? '#58D68D' : '#9b59b6';
+    
+    let bgPrice = tipo ? '#6eb667ff' : '#9b59b6';
     return (
         <>
             <Flex flexDirection={'column'} gap={2}
                 borderRadius={10} key={id} position={'relative'}
-                w={'max-content'}
+                w={'max-content'} bg={'#9add94ff'}
+                p={1}
                 >
                 <Box
-                    h={['auto', '350px']}
+                    h={['150px', '350px']}
                     w={['10rem', '250px']}
                     position={'relative'}
                     borderRadius={10}

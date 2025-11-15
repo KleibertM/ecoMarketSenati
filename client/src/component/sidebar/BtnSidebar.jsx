@@ -33,7 +33,7 @@ const BtnSidebar = ({ link, nameRoute, icon }) => {
                         fontFamily={'munayTitle'}
                     >
                         <Text>{nameRoute}</Text>
-                        <Text>Nave</Text>
+                        <Text>Carrito</Text>
                         <Text fontSize={'1.5rem'}>{icon}</Text>
                         <Text h={['10px', '20px']} w={['10px', '20px']} position={'absolute'} bg='red' borderRadius={50} display={cart.length ? 'block' : 'none'} top={'0'} right={'0'} fontSize={['.5rem', '1rem']} color={'#FFF'}
 

@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useCart } from "../../hook/cartHook";
 import { Button, useToast, Select, Flex, Text, Tooltip } from '@chakra-ui/react'
-import { PiFlyingSaucerBold } from "react-icons/pi";
+import { FiShoppingCart } from "react-icons/fi";
 
 const BtnAddToCart = ({ dataItem, FlexDirec }) => {
     const { addToCart } = useCart()
     const toast = useToast()
 
-    const [quantity, setQuantity] = useState(12);
+    const [quantity, setQuantity] = useState(1);
     return (
         <>
             <Flex 
@@ -15,7 +15,7 @@ const BtnAddToCart = ({ dataItem, FlexDirec }) => {
             gap={2}>
                 <Select
                     name="elegir cantidad"
-                    border={"2px solid #2E4053"}
+                    border={"2px solid #107407ff"}
                     borderRadius={'9999px'}
                     w={['auto', 'auto']}
                     value={quantity}
@@ -23,15 +23,15 @@ const BtnAddToCart = ({ dataItem, FlexDirec }) => {
                 >
                     {[...Array(189).keys()].map((number) => (
                         <option
-                            key={number + 12}
-                            value={number + 12}
+                            key={number + 1}
+                            value={number + 1}
                         >
-                            {number + 12}
+                            {number + 1}
                         </option>
                     ))}
                 </Select>
                 <Tooltip label='Agregar a la Nave'>
-                    <Button bg={'#2E4053'} color={'white'} name="Agregar a la Nave" gap={2}
+                    <Button bg={'#107407ff'} color={'white'} name="Agregar a la Nave" gap={2}
                         onClick={() => {
                             const productWithQuantity = { ...dataItem, quantity }; // Agregar la cantidad seleccionada al producto
                             addToCart(productWithQuantity); // Llamar a addToCart con el producto actualizado
@@ -45,10 +45,10 @@ const BtnAddToCart = ({ dataItem, FlexDirec }) => {
                         }}
                         borderRadius={50}>
                         <Text>
-                            Añadir a la
+                            Añadir al
                         </Text>
                         <Text fontSize={'2rem'}>
-                            <PiFlyingSaucerBold />
+                            <FiShoppingCart />
                         </Text>
                     </Button>
                 </Tooltip>

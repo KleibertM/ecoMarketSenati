@@ -17,7 +17,7 @@ import { useEffect } from "react";
 const DetailCards = () => {
     const { id } = useParams()
     const filterData = dataMunay.filter((item) => item.id === id)
-    let bgPrice = filterData[0].tipo ? '#58D68D' : '#9b59b6';
+    let bgPrice = filterData[0].tipo ? '#107407ff' : '#9b59b6';
     useEffect(() => {
         // Esto asegura que el scroll se posicione en la parte superior cuando el componente se monte
         window.scrollTo(0, 0);
