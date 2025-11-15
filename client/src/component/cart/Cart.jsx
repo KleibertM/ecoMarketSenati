@@ -112,15 +112,15 @@ const Cart = () => {
         });
     }
 
-    const cleanArr = (arr) => {
-        return arr.map((book) => {
-            return {
-                id: book.id,
-                quantity: book.quantity,
-                price: book.precio,
-            }
-        });
-    }
+    // const cleanArr = (arr) => {
+    //     return arr.map((book) => {
+    //         return {
+    //             id: book.id,
+    //             quantity: book.quantity,
+    //             price: book.precio,
+    //         }
+    //     });
+    // }
     return (
         <>
             <Flex flexDirection={"column"} w={'100%'} justify={'flex-start'} align={'center'} h={'auto'} >

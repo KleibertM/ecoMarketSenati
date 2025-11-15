@@ -1,7 +1,7 @@
 import { Flex, Text, keyframes } from '@chakra-ui/react';
 import { FiX } from "react-icons/fi";
 const animation = keyframes
-    `from {
+`from {
     opacity: 0
 }
 to {
