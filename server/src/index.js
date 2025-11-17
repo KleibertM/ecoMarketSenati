@@ -10,7 +10,7 @@ app.use(morgarn('dev'));
 app.use(express.json());
 
 // Configuración de CORS para permitir solicitudes desde múltiples orígenes
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:3000', 'eco-market-senati-gt9s.vercel.app', 'eco-market-senati.vercel.app'];
+const allowedOrigins = ['http://localhost:5173', 'http://localhost:3000', 'eco-market-senati.vercel.app', 'https://ecomarketsenati.onrender.com'];
 const corsOptions = {
   origin: function(origin, callback) {
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
