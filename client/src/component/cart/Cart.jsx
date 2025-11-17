@@ -124,7 +124,7 @@ const Cart = () => {
                 date: formatedDate,
             };
             const response = await axios.post(
-                "http://localhost:3000/create-order",
+                "https://ecomarketsenati.onrender.com/create-order",
                 ventaData
             );
             console.log('response', response);

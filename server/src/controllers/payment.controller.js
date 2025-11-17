@@ -34,7 +34,7 @@ export const createOrder = async (req, res) => {
           failure: "http://localhost:3000/failure",
           pending: "http://localhost:3000/pending",
         },
-        notification_url: "https://8919e1068f2e.ngrok-free.app/webhook",
+        notification_url: "https://ecomarketsenati.onrender.com/webhook",
       },
     });
     console.log('data del create',result.init_point);
