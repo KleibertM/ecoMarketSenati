@@ -7,12 +7,12 @@ const CardsContent = lazy(()=> import('../Cards/Cards'))
 const TabsNav = () => {
 
   return (
-    <Tabs isFitted variant='enclosed'>
-      <TabList mb='1em'>
-        <Tab fontSize={'1.5rem'} fontFamily={'munayTitle'} name='Sabores tradicional'>Produtos</Tab>
+    <Tabs isFitted variant='enclosed' >
+      <TabList mb='1em'  >
+        <Tab fontSize={'1.5rem'} fontFamily={'munayTitle'} name='Sabores tradicional' >Produtos</Tab>
       </TabList>
-      <TabPanels>
-        <TabPanel>
+      <TabPanels display={'flex'}justifyContent={'center'} >
+        <TabPanel w={'100vw'} p={0} m={0} >
           <CardsContent />
         </TabPanel>
       </TabPanels>
