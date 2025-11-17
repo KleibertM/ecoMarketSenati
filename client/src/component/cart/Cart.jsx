@@ -26,6 +26,7 @@ import {
 } from "@chakra-ui/react";
 import Swal from 'sweetalert2'
 import { useEffect } from 'react';
+import axios from 'axios';
 
 
 const Cart = () => {
@@ -111,16 +112,38 @@ const Cart = () => {
             }
         });
     }
+    const payOrder = async (cart) => {
 
-    // const cleanArr = (arr) => {
-    //     return arr.map((book) => {
-    //         return {
-    //             id: book.id,
-    //             quantity: book.quantity,
-    //             price: book.precio,
-    //         }
-    //     });
-    // }
+        try {
+            const date = new Date()
+            const formatedDate = date.toISOString().split('T')[0];
+            const cleanData = cleanArr(cart)
+            const ventaData = {
+                cart: cleanData,
+                total,
+                date: formatedDate,
+            };
+            const response = await axios.post(
+                "http://localhost:3000/create-order",
+                ventaData
+            );
+            console.log('response', response);
+            
+            window.location.href = response.data;
+        } catch (error) {
+            console.error("Error al procesar el pago:", error);
+            // Manejo de errores
+        }
+    };
+    const cleanArr = (arr) => {
+        return arr.map((book) => {
+            return {
+                id: book.id,
+                quantity: book.quantity,
+                price: book.precio,
+            }
+        });
+    }
     return (
         <>
             <Flex flexDirection={"column"} w={'100%'} justify={'flex-start'} align={'center'} h={'auto'} >
@@ -180,7 +203,7 @@ const Cart = () => {
                                                             </Text>
                                                         </Flex>
                                                     </Td>
-                                                    <Td  w={["auto", "10rem"]} color={'green'} fontWeight={'bold'}> s/{book.precio} </Td>
+                                                    <Td w={["auto", "10rem"]} color={'green'} fontWeight={'bold'}> s/{book.precio} </Td>
                                                     <Td>
                                                         <Button
                                                             bg='none'
@@ -202,7 +225,7 @@ const Cart = () => {
                                         <Tr w="100%">
                                             <Td>
                                                 <Button onClick={deleteAllCart}
-                                                name='borrar todos los arcitulos'
+                                                    name='borrar todos los arcitulos'
                                                     borderRadius={50}
                                                     h='3rem' w='3rem'
                                                     colorScheme="red" >
@@ -246,6 +269,20 @@ const Cart = () => {
                                 fontFamily={'munayTitle'}
                             >
                                 Pagar Pedido en
+                                <Text fontSize={'1.3rem'}>
+                                    <BsWhatsapp />
+                                </Text>
+                            </Button>
+
+                            <Button
+                                onClick={() => payOrder(cart)}
+                                colorScheme="blue"
+                                gap={2}
+                                w={['220px', '220px']}
+                                name='pagar'
+                                fontFamily={'munayTitle'}
+                            >
+                                Pagar YAPE
                                 <Text fontSize={'1.3rem'}>
                                     <BsWhatsapp />
                                 </Text>
