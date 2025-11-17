@@ -1,5 +1,6 @@
 import mercadopago from "mercadopago";
 import dotenv from "dotenv";
+import { BASE_URL } from "../config.js";
 dotenv.config();
 
 // Crear cliente con tu access token
@@ -9,8 +10,6 @@ const client = new mercadopago.MercadoPagoConfig({
 
 export const createOrder = async (req, res) => {
   try {
-    console.log("REQ BODY:", req.body); // debug
-
     const { cart, total, date } = req.body;
     if (!cart || cart.length === 0) {
       throw new Error("No hay elementos en el carrito");
@@ -30,15 +29,13 @@ export const createOrder = async (req, res) => {
       body: {
         items,
         back_urls: {
-          success: "http://localhost:3000/success",
-          failure: "http://localhost:3000/failure",
-          pending: "http://localhost:3000/pending",
+          success: `${BASE_URL}/success`,
+          failure: `${BASE_URL}/failure`,
+          pending: `${BASE_URL}/pedning`,
         },
         notification_url: "https://8919e1068f2e.ngrok-free.app/webhook",
       },
     });
-    console.log('data del create',result.init_point);
-    
     res.json(result.init_point); // devuelve init_point y demás
   } catch (error) {
     console.error(error);
@@ -47,17 +44,21 @@ export const createOrder = async (req, res) => {
 };
 
 export const webhook = async (req, res) => {
+  try {
+    const { type, ["data.id"]: dataId } = req.query;
 
-    const payment = req.query;
+    if (type === "payment") {
+      const payment = new mercadopago.Payment(client);
+      const result = await payment.get({ id: dataId });
 
-    try {
-        if (payment.type === "payment") {
-            const data = await mercadopago.payment.findById(payment['data.id']);
-            console.log(data);
-        }
-        res.sendStatus(204);
-    } catch (error) {
-        console.log(error);
-        return res.sendStatus(500).json({ error: "Error en el webhook" });
+      console.log("Pago recibido:", result.body);
+      // Aquí puedes actualizar tu BD con result.body.status, result.body.external_reference, etc.
     }
-}
+
+    // Siempre responde una sola vez
+    res.sendStatus(200);
+  } catch (error) {
+    console.error("Error en webhook:", error);
+    res.status(500).json({ error: "Error en el webhook" });
+  }
+};
