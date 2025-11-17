@@ -5,9 +5,9 @@ import { Grid, GridItem } from '@chakra-ui/react'
 const CardsContent = () => {
     return (
         <>
-            <Grid h='auto'
+            <Grid h='auto' w={'100vw'}
                 templateRows={['repeat(1, 1fr)', 'repeat(2, 1fr)']}
-                templateColumns={['repeat(2, 1fr)','repeat(2, 1fr)',   'repeat(5, 1fr)']}
+                templateColumns={['repeat(2, 1fr)','repeat(2, 1fr)',   'repeat(4, 1fr)']}
                 gap={[4, 8]} position={'relative'} 
                 >
                 {dataMunay.map((item, index) => (
