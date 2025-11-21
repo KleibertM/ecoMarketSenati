@@ -59,8 +59,8 @@ const Cart = () => {
     const totalAcortado = total.toFixed(2);
 
     const SendWhatsAppMessage = async (cart) => {
-        const message = `¡Hola! Me gustaría comprar los siguientes Marcianos:\n\n${cart
-            .map((book) => `Marcianos: ${book.nombre} - S/${book.precio} Cant: ${book.quantity} 
+        const message = `¡Hola! Me gustaría comprar los siguientes Productos:\n\n${cart
+            .map((book) => `Producto: ${book.nombre} - S/${book.precio} Cant: ${book.quantity} 
                 `)
             .join("\n")}\n\n Total: ${totalAcortado} soles\n ¿Podrías ayudarme con la compra?`;
 

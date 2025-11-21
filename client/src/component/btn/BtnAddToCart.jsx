@@ -30,14 +30,14 @@ const BtnAddToCart = ({ dataItem, FlexDirec }) => {
                         </option>
                     ))}
                 </Select>
-                <Tooltip label='Agregar a la Nave'>
-                    <Button bg={'#107407ff'} color={'white'} name="Agregar a la Nave" gap={2}
+                <Tooltip label='Agregar al carrito'>
+                    <Button bg={'#107407ff'} color={'white'} name="Agregar al carrito" gap={2}
                         onClick={() => {
                             const productWithQuantity = { ...dataItem, quantity }; // Agregar la cantidad seleccionada al producto
                             addToCart(productWithQuantity); // Llamar a addToCart con el producto actualizado
                             toast({
-                                title: 'Agregaste a la Nave.',
-                                description: `Se agrego ${quantity} marcianos de ${dataItem.nombre} a la Nave.`,
+                                title: 'Agregaste al.',
+                                description: `Se agrego ${quantity} articulo ${dataItem.nombre} al carrito.`,
                                 status: 'success',
                                 duration: 1500,
                                 isClosable: true,

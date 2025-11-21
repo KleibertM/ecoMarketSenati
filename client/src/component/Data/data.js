@@ -13,7 +13,7 @@ export const dataMunay = [
     id: "2",
     nombre: "Zanahoria Orgánica",
     descripcion: "Zanahorias crujientes y dulces, cultivadas de forma sostenible. Fuente natural de betacaroteno, perfectas para jugos, guisos o snacks saludables.",
-    precio: 1.80,
+    precio: 1,
     ingredientes: ["Zanahoria orgánica"],
     image: ['https://viviendosanos.com/wp-content/uploads/2008/06/Propiedades-y-beneficios-de-la-zanahoria-zanahorias-de-la-huerta.jpg'],
     estado: true,
