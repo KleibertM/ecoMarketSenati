@@ -4,10 +4,12 @@ const Searcher = ({  searcher }) => {
 
     return (
         <>
-            <Flex  w='80%' 
+            <Flex  w={['50%', 'auto']}
             bottom={0} 
             left={'calc(50% - 50%)'} 
-            zIndex={10} 
+            zIndex={10}
+            mx='10'
+            marginBottom={'1rem'}
             px='1' 
             py='1' 
             bg='gray.50' 
